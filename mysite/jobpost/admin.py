@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import JobPost, Category
+from .models import JobPost, Category, Company
 
 
 
@@ -14,5 +14,11 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display_links = ('id','title')
     search_fields = ('title',)
 
+class CompanyAdmin(admin.ModelAdmin):
+    list_display = ('id', 'company_name')
+    list_display_links = ('id','company_name')
+    search_fields = ('company_name',)
+
 admin.site.register(JobPost,JobPostAdmin)
 admin.site.register(Category,CategoryAdmin)
+admin.site.register(Company,CompanyAdmin)

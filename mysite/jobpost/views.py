@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import JobPost, Category,Company
-from rest_framework import generics
+from rest_framework import generics, viewsets
 from .serializers import JobPostSerializer
+
 
 
 
@@ -29,6 +30,18 @@ def companies_list(request):
 
     }
 
-class JobPostAPIView(generics.ListAPIView):
+class JobPostViewSet(viewsets.ModelViewSet):
+   queryset = JobPost.objects.all()
+   serializer_class = JobPostSerializer
+
+class JobPostAPIView(generics.ListCreateAPIView):
+    queryset = JobPost.objects.all()
+    serializer_class = JobPostSerializer
+
+class JobPostAPIUpdate(generics.UpdateAPIView):
+    queryset = JobPost.objects.all()
+    serializer_class = JobPostSerializer
+
+class JobPostAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = JobPost.objects.all()
     serializer_class = JobPostSerializer

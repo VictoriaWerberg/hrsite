@@ -20,12 +20,17 @@ from django.conf.urls.static import static
 
 from uploadcv.views import * 
 from jobpost.views import *
+from rest_framework import routers
+
+router = routers.SimpleRouter()
+router.register(r'jobs',JobPostViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('jobpost.urls')),
-    path('api/v1/jobslist/', JobPostAPIView.as_view()),
+    #path('api/v1/jobslist/', JobPostAPIDetailView.as_view()),
     path("markers/", include("markers.urls")),
+    path('api/v1/', include(router.urls)),
     ]
 
 
