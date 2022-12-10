@@ -17,7 +17,7 @@ class JobPost(models.Model):
     #logo = models.ImageField(upload_to = 'logo', blank = True)
     is_published  = models.BooleanField(default=True)
     category = models.ForeignKey('category', on_delete = models.PROTECT,null=True)
-    #user = models.ForeignKey(User, verbose_name='company user', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, verbose_name='company user', on_delete=models.CASCADE)
    
 
     def __str__(self):

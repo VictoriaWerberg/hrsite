@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from .models import JobPost, Category,Company
 from rest_framework import generics, viewsets
 from .serializers import JobPostSerializer
+from rest_framework.permissions import IsAuthenticatedOrReadOnly,IsAdminUser
+from jobpost.permissions import IsOwnerOrReadOnly
 
 
 
@@ -30,18 +32,22 @@ def companies_list(request):
 
     }
 
-class JobPostViewSet(viewsets.ModelViewSet):
-   queryset = JobPost.objects.all()
-   serializer_class = JobPostSerializer
 
 class JobPostAPIView(generics.ListCreateAPIView):
     queryset = JobPost.objects.all()
     serializer_class = JobPostSerializer
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+    
 
 class JobPostAPIUpdate(generics.UpdateAPIView):
     queryset = JobPost.objects.all()
     serializer_class = JobPostSerializer
+    permission_classes = (IsOwnerOrReadOnly,)
+    
 
 class JobPostAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = JobPost.objects.all()
     serializer_class = JobPostSerializer
+    permission_classes = (IsAdminUser,)
+
+

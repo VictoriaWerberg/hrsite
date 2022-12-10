@@ -41,9 +41,7 @@ INSTALLED_APPS = [
     'uploadcv.apps.UploadcvConfig',
     'jobpost.apps.JobPostConfig',
     'rest_framework',
-    'django.contrib.gis',
-    'markers',
-]
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
