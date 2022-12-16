@@ -26,22 +26,22 @@ SECRET_KEY = 'django-insecure-$^_5$rvt2%mvpbjool^12es-8%w&!33r6v2d7!b5-r6*24lsms
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
-INSTALLED_APPS = ['*']
-    # 'django.contrib.admin',
-    # 'django.contrib.auth',
-    # 'django.contrib.contenttypes',
-    # 'django.contrib.sessions',
-    # 'django.contrib.messages',
-    # 'django.contrib.staticfiles',
-    # 'uploadcv.apps.UploadcvConfig',
-    # 'jobpost.apps.JobPostConfig',
-    # 'rest_framework',
-    # ]
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'uploadcv.apps.UploadcvConfig',
+    'jobpost.apps.JobPostConfig',
+    'rest_framework',
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
