@@ -1,6 +1,7 @@
 from django.test import TestCase
+from django.test import SimpleTestCase
 from rest_framework.test import APITestCase
-from jobpost.models import JobPost, Category,Company
+from jobpost.models import Category,Company
 
 
 class CategoryAPITestCase(APITestCase):
@@ -20,4 +21,12 @@ class CompanyAPITestCase(TestCase):
             company_name ='Test title one',
             company_profile ='Test content one',
         )
-
+ 
+class SimpleTests(SimpleTestCase):
+    def test_home_page_status_code(self):
+        response = self.client.get('')
+        self.assertEqual(response.status_code, 200)
+ 
+    def test_about_page_status_code(self):
+        response = self.client.get('api/v1/jobslist/')
+        self.assertEqual(response.status_code, 200)
