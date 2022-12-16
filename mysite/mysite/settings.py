@@ -31,17 +31,17 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'uploadcv.apps.UploadcvConfig',
-    'jobpost.apps.JobPostConfig',
-    'rest_framework',
-    ]
+INSTALLED_APPS = ['*']
+    # 'django.contrib.admin',
+    # 'django.contrib.auth',
+    # 'django.contrib.contenttypes',
+    # 'django.contrib.sessions',
+    # 'django.contrib.messages',
+    # 'django.contrib.staticfiles',
+    # 'uploadcv.apps.UploadcvConfig',
+    # 'jobpost.apps.JobPostConfig',
+    # 'rest_framework',
+    # ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
